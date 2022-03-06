@@ -21,7 +21,7 @@ wlan_pattern = re.compile("^wlan[0-9]+")
 check_wifi_result = wlan_pattern.findall(subprocess.run(["iwconfig"], capture_output=True).stdout.decode())
 
 #Wi-Fi Adapter Check.
-if len(check_wifi_result2) == 0 :
+if len(check_wifi_result) == 0 :
     print("Please connect a WiFi adapter.")
     exit()
 
